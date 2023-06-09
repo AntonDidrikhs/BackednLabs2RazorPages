@@ -1,0 +1,27 @@
+﻿@page
+@model BackendLab01.Pages.Quiz.QuizListModel
+@{
+	ViewData["Title"] = "List";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<h1>All Quizzes</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Tytuł</th>
+            <th>Liczba pytań</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var quiz in @Model.Quizzes)
+        {
+            <tr>
+                <td>@quiz.Title</td>
+                <td>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Quiz/Item" asp-route-itemId="1" asp-route-quizId="@quiz.Id">[Open Quiz]</a>
+                </td>
+                </tr>
+
+        }
+    </tbody>
+</table>
